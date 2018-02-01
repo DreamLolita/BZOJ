@@ -1,0 +1,5 @@
+构造数列$a_n=b*a_{n-1}+\frac {d?b^2} 4*a_{n-2}$
+其中$a_0=2,a_1=b$
+然后我们求出这个数列的通项公式，得到$a_n=(\frac {b+\sqrt d} 2)^n+(\frac {b-\sqrt d} 2)^n$
+因此得到$(\frac {b+\sqrt d} 2)^n=a_n-(\frac {b-\sqrt d} 2)^n$
+由于$b \mod2=1,d \mod4=1$，因此$\frac {d-b^2} 4$一定是个正整数，故我们可以利用矩阵乘法来求出这个数列的第$n$项 
