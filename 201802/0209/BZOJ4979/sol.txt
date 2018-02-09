@@ -1,0 +1,10 @@
+这道题还是不错的qwq。~~（一眼看破是分治了好不好，虽然我不太会做啦）~~
+对于两个房间$A,B$，不妨设$x_A\leq x_B$，那么有： 
+$$dis(A,B) = x_B -x_A + y_A + y_B -2\times min(y_A,y_B,h_{x_A},h_{x_{A+1}},\dots ,h_{x_B})$$ 
+若$x_A =x_B$，那么直接按照$y$排序然后双指针统计答案即可，接下来只需要考虑$x_A < x_B$的情况。 
+对序列$h$进行分治，设$solve(l,r)$表示处理所有$l \leq x_A < x_B \leq r$ 的点对。 
+取$ mid = \frac {l+r} 2$，那么递归调用 $solve(l,mid)$ 和 $solve(mid+1,r)$ 后，只需要处理 $l \leq x_A \leq mid < x_B \leq r$ 的点对。 
+设 $f_i$表示 $min(h_i,h_{i+1},\dots,h_{mid})$，$g_i $表示 $min(h_{mid+1},\dots,h_{i-1},h_i)$，则： 
+$$dis(A,B) = x_B -x_A + y_A + y_B -2\times min(y_A,y_B,h_{x_A},h_{x_{A+1}},\dots ,h_{x_B}) = x_B -x_A + y_A + y_B -2\times min(min(y_A,f_{x_A}),min(y_B,g_{x_B})) $$
+枚举$min$落在$A$还是$B$，扫描线 + 树状数组统计即可。 
+时间复杂度$O(nlogn + mlog^2n)$。
