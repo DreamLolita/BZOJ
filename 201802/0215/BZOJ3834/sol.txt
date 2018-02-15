@@ -1,0 +1,2 @@
+首先枚举答案$n$，变成检验$\lfloor\frac{A-1}{n}\rfloor < \lfloor\frac{B}{n}\rfloor && \lfloor\frac{C-1}{n}\rfloor < \lfloor\frac{D}{n}\rfloor$ 有没有解
+分块求解即可。
