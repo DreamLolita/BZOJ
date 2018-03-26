@@ -1,0 +1,6 @@
+对棋盘进行黑白染色，设黑格个数为$num1$，数值和为$sum1$，白格个数为$num2$，数值和为$sum2$，最后都变为$x$。
+则$num1 * x – sum1 = num2 * x – sum2$
+$x =\frac {sum1 – sum2} {num1 – num2}$
+当$num1!=num2$时 可以解出$x$再用网络流check即可
+当$num1 = num2$时 可以发现 对于一个合法的$x$，$k>=x$都是一个合法的解
+所以可以二分$x$ 然后用网络流check
