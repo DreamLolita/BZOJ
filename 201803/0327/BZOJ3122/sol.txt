@@ -1,0 +1,12 @@
+我数论只会gcd啊，所以很郑重地写下了这篇博文。这个题显然是有循环的，但是这个循环怎么求，就用到BSGS辣。
+接下来我们化一下原来的式子$x_{i+1}\equiv ax_i+b\pmod p$
+$$x_{i+1}+{b\over {a-1}}\equiv ax_i+b+{b\over {a-1}}\pmod p$$
+$$x_{i+1}+{b\over {a-1}}\equiv a(x_i+{b\over {a-1}})\pmod p$$
+$$x_n+{b\over {a-1}}\equiv a(x_{n-1}+{b\over {a-1}})\pmod p$$
+$$x_n+{b\over {a-1}}\equiv a^2(x_{n-2}+{b\over {a-1}})\pmod p$$
+迭代下去我们就可以得到，
+$$x_n+{b\over {a-1}}\equiv a^{n-1}(x_1+{b\over {a-1}})\pmod p$$
+所以最终的式子就是
+$$a^{n-1}\equiv (x_n+b*inv(a-1))*inv(x_1+b*inv(a-1))\pmod p$$
+但是这个东西要特判一下a=0，a=1的情况。
+然后就可以exgcd解出$a^{n-1}$，再用BSGS算出n即可。

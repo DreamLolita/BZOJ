@@ -1,0 +1,5 @@
+FFT背模板ing，随便推一波式子：
+$E_i=\sum_{j<i} \frac{q_j}{(j-i)^2}-\sum_{j>i} \frac{q_j}{(j-i)^2}$
+$E_i=\sum_{j=1}^{i-1} \frac{q_j}{(j-i)^2} - \sum_{j=i+1}^{n} \frac{q_j}{(j-i)^2}$
+设$f[i]=q_i, g[i]=\frac{1}{i^2}$，则$E_i=\sum_{j=1}^{i-1} f[j]g[i-j] - \sum_{j=i+1}^{n} f[j]g[j-i]$
+第一个式子就是卷积，第二个式子换元后得到：$\sum_{j=0}^{n-1-i}{f[n-1-j]*g[j-i]}$
