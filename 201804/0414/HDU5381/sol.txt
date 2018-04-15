@@ -1,0 +1,6 @@
+l或r固定之后，f(l,r)的取值最多有logA种情况，故每次从f(l,r)转移到相邻区间至多logA次更新，
+用vl[i]记录以第i个元素为左端点的区间gcd所有取值，vl[i][j].first表示第j个gcd取值，
+vl[i][j].second表示使得f(i,r)=vl[i][j].first的最大r值；
+用vr[i]记录以第i个元素为右端点的区间gcd所有取值，vr[i][j].first表示第j个gcd取值，
+vr[i][j].second表示使得f(l,i)=vr[i][j].first的最小l值。用nlogA的复杂度处理出vl和vr，
+之后用莫队离线处理这m个查询，复杂度应该是一个根号一个log
