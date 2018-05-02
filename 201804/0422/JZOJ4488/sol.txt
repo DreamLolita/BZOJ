@@ -1,0 +1,6 @@
+GDOI2016D1T4
+考虑询问。我们将x到y的路径分为x到lca和lca到y两部分。
+对于第一部分的点i，设它到y的距离为s，则s=deep[i]+deep[y]-2*deep[lca]，i对答案的贡献为a[i]*s*(s+1)2，先不考虑除以2，设t=deep[y]-2*deep[lca]（这个值对于第一部分的点来说是个常数），则贡献为a[i]*deep[i]2+a[i]*deep[i]*(2*t+1)+a[i]*(t+t2)。
+对于第二部分的点i，s=deep[y]-deep[i]，设t=deep[y]，则贡献为a[i]*deep[i]2-a[i]*deep[i]*(2*t+1)+a[i]*(t+t2)。
+可以发现，对于每个点i我们只需维护a[i]*deep[i]2、a[i]*deep[i]和a[i]即可。这个就是线段树的基本功能了。（提醒：上述式子记得加上/2） 
+最后加上树剖和可持久化即可。
