@@ -1,0 +1,5 @@
+并不会用到莫比乌斯反演，只会用到它的性质。
+$$\sum_{i=1}^n\sum_{j=1}^n\phi(gcd(i,j))\\=\sum_{i=1}^n\sum_{j=1}^n\sum_{d=1}^n\phi(d)[gcd(i,j)==d]\\=\sum_{d=1}^n\phi(d)\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{n}{d}\rfloor}[gcd(i,j)==1]\\=2\sum^n_{d=1}(\phi(d)*\sum(\lfloor\frac{n}{d}\rfloor))-sum(n)$$
+其中
+$$\sum\limits_{i=1}^k\sum\limits_{j=1}^k[\gcd(i,j)=1]=2\sum\limits_{i=1}^k\varphi(i)-1$$
+接下来只需要预处理phi和前缀和sum，分块计算即可。
